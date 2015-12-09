@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Income Source:</strong>
+  <%= @income.income_source %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <% if @income.category %>
+    <%= @income.category.title %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
+<p>
+  <strong>Gross Income:</strong>
+  <%= @income.gross_income %>
+</p>
+
+<p>
+  <strong>Net Income:</strong>
+  <%= @income.net_income %>
+</p>
+
+<p>
+  <strong>Bank Account:</strong>
+  <%= @income.bank_account %>
+</p>
+
+<%= link_to 'Edit', edit_income_path(@income) %> |
+<%= link_to 'Back', incomes_path %>

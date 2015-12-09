@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @goal.name %>
+</p>
+
+<p>
+  <strong>Start Date:</strong>
+  <%= @goal.start_date.strftime("%m/%d/%Y") %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @goal.duration %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @goal.frequency %>
+</p>
+
+<p>
+  <strong>Desired Total:</strong>
+  <%= number_to_currency(@goal.desired_total) %>
+</p>
+
+<p>
+  <strong>Actual Total:</strong>
+  <%= number_to_currency(@goal.actual_total) %>
+</p>
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>
+
+<h3>Due Dates: </h3>
+<% @goal.data_points.order("due_date ASC").each do |data_point| %>
+    <p>Desired Amount: <%= number_to_currency(data_point.desired_amount) %></p>
+    <p>Actual Amount:  <%= number_to_currency(data_point.actual_amount) %></p>
+    <p>Due Date:       <%= data_point.due_date.strftime("%m/%d/%Y") %></p>
+    <hr><br>
+<% end %>

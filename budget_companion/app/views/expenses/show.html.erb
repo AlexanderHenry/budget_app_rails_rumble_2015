@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @expense.name %>
+</p>
+
+<% if @expense.category %>
+  <p>
+    <strong>Category:</strong>
+    <%= @expense.category.title %>
+  </p>
+<% else %>
+  <p>
+    None
+  </p>
+<% end %>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @expense.amount %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @expense.due_date %>
+</p>
+
+<p>
+  <strong>Payment date:</strong>
+  <%= @expense.payment_date %>
+</p>
+
+<p>
+  <strong>Late fee:</strong>
+  <%= @expense.late_fee %>
+</p>
+
+<p>
+  <strong>APR:</strong>
+  <%= @expense.apr %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @expense.paid %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>
